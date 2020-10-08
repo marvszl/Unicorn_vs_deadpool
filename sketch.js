@@ -1,3 +1,25 @@
+/*
+This sidescrolling Shooter is inspired by the Coding Challenge #31:
+
+https://thecodingtrain.com/CodingChallenges/031-flappybird.html
+
+A big thanks to Daniel Shiffman who had made this project possible
+
+To move the Unicorn use the Arrowkeys with Spacebar you can 
+shoot the little Deadpools
+Every Shot subtracts 10 Points, a hitten Deadpool gives you 100 Points
+The cave gets smaller every 500 Frames
+
+
+Author: Marvin Szloszjar
+06.10.2020
+
+*/
+
+
+alert('To Control the Unicorn use the ArrowKeys, shooting with Spacebar.If the controlls do not work, you have to click in the Preview window');
+
+
 let schuesse = [];
 let gegner_array = [];
 let plattform_u = [];
@@ -89,12 +111,12 @@ function draw() {
       plattform_u[i].trifft(fahrer);
       for (j = schuesse.length - 1; j > 0; j--) {
         plattform_u[i].trifft_landschaft(schuesse[j]);
-        if( hit_landschaft_u==true && plattform_u[i].x<width-2){
-          landschaft_u_hit_vorher=i-1;
-          landschaft_u_hit_nachher=i+1;
-          plattform_u[landschaft_u_hit_vorher].y=plattform_u[landschaft_u_hit_vorher].y+20;
-          plattform_u[landschaft_u_hit_nachher].y=plattform_u[landschaft_u_hit_nachher].y+20;
-          hit_landschaft_u=false;
+        if (hit_landschaft_u == true && plattform_u[i].x < width - 2) {
+          landschaft_u_hit_vorher = i - 1;
+          landschaft_u_hit_nachher = i + 1;
+          plattform_u[landschaft_u_hit_vorher].y = plattform_u[landschaft_u_hit_vorher].y + 20;
+          plattform_u[landschaft_u_hit_nachher].y = plattform_u[landschaft_u_hit_nachher].y + 20;
+          hit_landschaft_u = false;
         }
       }
 
@@ -113,14 +135,14 @@ function draw() {
       plattform_o[i].trifft(fahrer);
       for (j = schuesse.length - 1; j > 0; j--) {
         plattform_o[i].trifft_landschaft(schuesse[j]);
-        if( hit_landschaft_o==true&& plattform_o[i].x<width-2){
-          landschaft_o_hit_vorher=i-1;
-          landschaft_o_hit_nachher=i+1;
-          plattform_o[landschaft_o_hit_vorher].y=plattform_o[landschaft_o_hit_vorher].y-20;
-          plattform_o[landschaft_o_hit_nachher].y=plattform_o[landschaft_o_hit_nachher].y-20;
-          hit_landschaft_o=false;
+        if (hit_landschaft_o == true && plattform_o[i].x < width - 2) {
+          landschaft_o_hit_vorher = i - 1;
+          landschaft_o_hit_nachher = i + 1;
+          plattform_o[landschaft_o_hit_vorher].y = plattform_o[landschaft_o_hit_vorher].y - 20;
+          plattform_o[landschaft_o_hit_nachher].y = plattform_o[landschaft_o_hit_nachher].y - 20;
+          hit_landschaft_o = false;
         }
-               
+
       }
     }
 
@@ -140,11 +162,11 @@ function draw() {
     }
     if (hit_gegner) {
       gegner_array.splice(j, 1);
-      zaehler = zaehler + 50;
+      zaehler = zaehler + 100;
       hit_gegner = false;
     }
 
-    console.log(gegner_array.length);
+    //console.log(gegner_array.length);
   }
   for (j = gegner_array.length - 1; j > 0; j--) {
 
